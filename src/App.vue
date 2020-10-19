@@ -1,5 +1,7 @@
 <template>
 
+<pm-header />
+
 <section class="section">
 
   <nav class="nav has-shadow">
@@ -28,10 +30,15 @@
   </div>
 
 </section>
+
+<pm-footer />
   
 </template>
 
 <script>
+
+import PmFooter from "./components/layout/Footer";
+import PmHeader from "./components/layout/Header";
 
 // API del curso no funcionando, se seguirá usando el array
 
@@ -54,7 +61,7 @@ export default {
 
   name: 'App',
 
-  components: {},
+  components: { PmFooter, PmHeader },
 
   data() {
     return {
