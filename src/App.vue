@@ -1,20 +1,95 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+
+<section class="section">
+
+  <nav class="nav has-shadow">
+
+    <div class="container">
+
+      <input type="text" class="input is-large" placeholder="Buscar canciones" v-model="searchQuery">
+      <a href="#" class="button is-info is-large" @click="search">Buscar</a>
+      <a href="#" class="button is-danger is-large">&times;</a>
+      <p>
+        <small>{{ searchMessage }}</small>
+      </p>
+
+    </div>
+
+  </nav>
+
+  <div class="container results">
+    <div class="columns">
+
+      <div class="column" v-for="t in tracks" :key="t">
+        {{ t.name }} - {{ t.artist }}
+      </div>
+
+    </div>
+  </div>
+
+</section>
+  
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+const tracks = [
+  {
+    name: "Shot In The Dark",
+    artist: "AC/DC"
+  },
+  {
+    name: "Livin' On The Edge",
+    artist: "Aerosmith"
+  },
+  {
+    name: "Rocket Queen",
+    artist: "Guns N' Roses"
+  }
+];
 
 export default {
+
   name: 'App',
-  components: {
-      HelloWorld
+
+  components: {},
+
+  data() {
+    return {
+
+      searchQuery: "",
+      tracks: []
+
+    }
+  },
+
+  methods: {
+
+    search() {
+      this.tracks = tracks;
+    }
+    
+  },
+
+  computed: {
+
+    searchMessage() {
+
+      return `Econtrados: ${this.tracks.length} canciones`;
+
+    }
+
   }
+
 }
 </script>
 
 <style lang="scss">
 /* Es una buena pŕactica importar los estiulos generales desde el componente App.vue */
 @import "./scss/main.scss";
+
+.results {
+  margin-top: 50px
+}
+
 </style>
