@@ -33,6 +33,8 @@
 
 <script>
 
+// API del curso no funcionando, se seguirá usando el array
+
 const tracks = [
   {
     name: "Shot In The Dark",
@@ -66,6 +68,9 @@ export default {
   methods: {
 
     search() {
+
+      if (!this.searchQuery) return
+
       this.tracks = tracks;
     }
     
