@@ -61,6 +61,7 @@ const tracks = [
     name: "Shot In The Dark",
     artist: "AC/DC",
     img: "https://static1.abc.es/media/cultura/2020/09/30/powerup-1-U35512706716Llf-620x349@abc.jpg",
+    src: "No hay URL",
     duration_ms: 3600
   },
   {
@@ -68,6 +69,7 @@ const tracks = [
     name: "Livin' On The Edge",
     artist: "Aerosmith",
     img: "https://www.infobae.com/new-resizer/kx9BdL1rrJnOaMiKMM9agfhc2qo=/768x432/filters:format(jpg):quality(85)/s3.amazonaws.com/arc-wordpress-client-uploads/infobae-wp/wp-content/uploads/2017/09/26134245/Aerosmith.jpg",
+    src: null,
     duration_ms: 3600
   },
   {
@@ -75,6 +77,7 @@ const tracks = [
     name: "Rocket Queen",
     artist: "Guns N' Roses",
     img: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/GNR_London_Stadium_2017_3_%28cropped%29.jpg/300px-GNR_London_Stadium_2017_3_%28cropped%29.jpg",
+    src: "No hay URL",
     duration_ms: 3600
   }
 ];

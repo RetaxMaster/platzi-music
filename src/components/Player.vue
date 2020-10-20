@@ -2,16 +2,16 @@
     
     <div class="content">
         <p class="is-128x128">
-            <img src="">
+            <img :src="track.img">
         </p>
 
         <p>
-            <strong>{{ }}</strong>
-            <small>{{ }}</small>
+            <strong>{{ track.name }}</strong>
+            <small>{{ track.duration_ms }}</small>
         </p>
 
         <p>
-            <audio src="" controls></audio>
+            <audio :src="track.src" controls></audio>
         </p>
     </div>
 
@@ -29,14 +29,20 @@ export default {
 
     mounted() {
 
-        /* emitter.on("set-track", (track) => {
-            console.log("Emited! ", track);
-
+        this.$bus.$on("set-track", (track) => {
             this.track = track;
-
-        }); */
+        });
 
     }
 
 }
 </script>
+
+<style scoped>
+
+    img {
+        width: 124px;
+        border-radius: 50%;
+    }
+
+</style>

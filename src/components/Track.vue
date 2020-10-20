@@ -59,7 +59,7 @@ export default {
 
             this.$emit("select", this.track.id);
 
-            this.$emit("set-track", this.track);
+            this.$bus.$emit("set-track", this.track);
 
         }
 
