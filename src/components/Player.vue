@@ -1,6 +1,6 @@
 <template>
     
-    <div class="content">
+    <div class="content" v-if="track.img">
         <p class="is-128x128">
             <img :src="track.img">
         </p>

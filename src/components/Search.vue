@@ -80,7 +80,7 @@ const tracks = [
 
 export default {
 
-  name: 'App',
+  name: 'Search',
 
   components: { PmTrack, PmLoader, PmNotification },
 

@@ -1,11 +1,12 @@
-import Search from "@/components/Search.vue";
+import Search from '@/components/Search'
 
 const routes = [
-    {
-        path: "/",
-        name: "search",
-        comoponent: Search
-    }
-];
+  {
+    path: "/",
+    name: "search",
+    component: Search
+  }
+]
 
-export default routes;
+
+export default routes
