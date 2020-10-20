@@ -1,4 +1,4 @@
-# platzi-music-3
+# platzi-music-vue-2
 
 ## Project setup
 ```

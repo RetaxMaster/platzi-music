@@ -1,51 +1,50 @@
 <template>
 
-<pm-header />
-
-<pm-loader v-show="isLoading" />
-
-<section class="section">
-
-  <nav class="nav has-shadow">
-
-    <div class="container">
-
-      <input type="text" class="input is-large" placeholder="Buscar canciones" v-model="searchQuery">
-      <a href="#" class="button is-info is-large" @click="search">Buscar</a>
-      <a href="#" class="button is-danger is-large">&times;</a>
-      <p>
-        <small>{{ searchMessage }}</small>
-      </p>
-
-    </div>
-
-  </nav>
-
-  <div class="container results">
-    <div class="columns is-multiline">
-
-      <div class="column is-one-quarter" v-for="t in tracks" :key="t">
-        <pm-track :track="t" />
+<div id="app">
+  <pm-header />
+  
+  <pm-loader v-show="isLoading" />
+  
+  <section class="section">
+  
+    <nav class="nav has-shadow">
+  
+      <div class="container">
+  
+        <input type="text" class="input is-large" placeholder="Buscar canciones" v-model="searchQuery">
+        <a href="#" class="button is-info is-large" @click="search">Buscar</a>
+        <a href="#" class="button is-danger is-large">&times;</a>
+        <p>
+          <small>{{ searchMessage }}</small>
+        </p>
+  
       </div>
-
+  
+    </nav>
+  
+    <div class="container results">
+      <div class="columns is-multiline">
+  
+        <div class="column is-one-quarter" v-for="(t, i) in tracks" :key="i">
+          <pm-track :track="t" />
+        </div>
+  
+      </div>
     </div>
-  </div>
-
-</section>
-
-<pm-footer />
+  
+  </section>
+  
+  <pm-footer />
+</div>
   
 </template>
 
 <script>
-
 import PmFooter from "@/components/layout/Footer";
 import PmHeader from "@/components/layout/Header";
 import PmTrack from "@/components/Track";
 import PmLoader from "@/components/shared/Loader";
-
 // API del curso no funcionando, se seguirá usando el array
-
 const tracks = [
   {
     name: "Shot In The Dark",
@@ -66,58 +65,37 @@ const tracks = [
     duration_ms: 3600
   }
 ];
-
 export default {
-
   name: 'App',
-
   components: { PmFooter, PmHeader, PmTrack, PmLoader },
-
   data() {
     return {
-
       searchQuery: "",
       tracks: [],
       isLoading: false
-
     }
   },
-
   methods: {
-
     search() {
-
       if (!this.searchQuery) return
-
       this.isLoading = true;
-
       this.tracks = tracks;
-
       this.isLoading = false;
-
     }
     
   },
-
   computed: {
-
     searchMessage() {
-
       return `Econtrados: ${this.tracks.length} canciones`;
-
     }
-
   }
-
 }
 </script>
 
 <style lang="scss">
 /* Es una buena pŕactica importar los estiulos generales desde el componente App.vue */
 @import "./scss/main.scss";
-
 .results {
   margin-top: 50px
 }
-
 </style>

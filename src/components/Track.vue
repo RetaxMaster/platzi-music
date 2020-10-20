@@ -30,7 +30,7 @@
                 <nav class="level">
                     <div class="level-left">
                         <a href="#" class="level-item">
-                            <span class="icon is-small">Play!</span>
+                            <span class="icon is-small" @click="selectTrack">Play!</span>
                         </a>
                     </div>
                 </nav>
@@ -51,6 +51,18 @@ export default {
             type: Object,
             required: true
         }
+    },
+
+    methods: {
+
+        selectTrack() {
+
+            this.$emit("select", this.track.id);
+
+            this.$emit("set-track", this.track);
+
+        }
+
     }
     
 }
