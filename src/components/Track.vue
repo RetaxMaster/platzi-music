@@ -1,6 +1,6 @@
 <template>
     
-    <div class="card">
+    <div class="card" v-if="track && track.album">
 
         <div class="card-image">
             <figure class="image is-1by1">

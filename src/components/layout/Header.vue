@@ -13,7 +13,8 @@
                     </div>
 
                     <div class="nav-right nav-menu">
-
+                        <router-link class="nav-item" :to="{ name: 'search' }">Buscar</router-link>
+                        <router-link class="nav-item" to="about">Acerca</router-link>
                     </div>
 
                 </div>
