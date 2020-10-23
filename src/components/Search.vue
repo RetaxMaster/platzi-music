@@ -15,8 +15,9 @@
     <nav class="nav has-shadow">
   
       <div class="container">
-  
-        <input type="text" class="input is-large" placeholder="Buscar canciones" v-model="searchQuery">
+        
+        <!-- Podemos usar modifiers como .enter -->
+        <input type="text" class="input is-large" placeholder="Buscar canciones" v-model="searchQuery" @keyup.enter="search">
         <a href="#" class="button is-info is-large" @click="search">Buscar</a>
         <a href="#" class="button is-danger is-large">&times;</a>
         <p>
