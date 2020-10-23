@@ -29,9 +29,15 @@
                 <small>{{ track.duration_ms }}</small>
                 <nav class="level">
                     <div class="level-left">
-                        <a href="#" class="level-item">
+
+                        <div class="level-item">
                             <span class="icon is-small" @click="selectTrack">Play!</span>
-                        </a>
+                        </div>
+
+                        <div class="level-item">
+                            <span class="icon is-small" @click="goToTrack(track.id)">Go to track!</span>
+                        </div>
+
                     </div>
                 </nav>
             </div>
@@ -61,6 +67,13 @@ export default {
 
             this.$bus.$emit("set-track", this.track);
 
+        },
+
+        goToTrack(id) {
+            this.$router.push({
+                name: "track",
+                params: { id }
+            });
         }
 
     }
