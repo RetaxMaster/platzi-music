@@ -50,7 +50,12 @@
 
 <script>
 
+import trackMixin from "@/mixins/track";
+
 export default {
+
+    // Podemos usar varios mixins
+    mixins: [ trackMixin ],
 
     props: {
         track: {
@@ -60,16 +65,6 @@ export default {
     },
 
     methods: {
-
-        selectTrack() {
-
-            if(!this.track.src) return
-
-            this.$emit("select", this.track.id);
-
-            this.$bus.$emit("set-track", this.track);
-
-        },
 
         goToTrack(id) {
 

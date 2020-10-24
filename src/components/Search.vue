@@ -2,13 +2,17 @@
 
 <main>
 
-  <pm-notification v-show="showNotification">
-    <template v-slot:body>
-        <p>No se encontro nada</p>
-    </template>
-  </pm-notification>
+  <transition name="move">
+    <pm-notification v-show="showNotification">
+      <template v-slot:body>
+          <p>No se encontro nada</p>
+      </template>
+    </pm-notification>
+  </transition>
   
-  <pm-loader v-show="isLoading" />
+  <transition name="move">
+    <pm-loader v-show="isLoading" />
+  </transition>
   
   <section class="section">
   
@@ -115,7 +119,11 @@ export default {
       if(tracks-length === 0) this.showNotification = true;
       this.tracks = tracks;
 
-      this.isLoading = false;
+      // Puse el timeout para que se aprecie la transición
+      setTimeout(() => {
+          this.isLoading = false;
+        }, 3000);
+      //this.isLoading = false;
 
     },
 
