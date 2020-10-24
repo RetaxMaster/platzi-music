@@ -32,7 +32,12 @@
       <div class="columns is-multiline">
   
         <div class="column is-one-quarter" v-for="t in tracks" :key="t.id">
-          <pm-track @select="setSongPlaying" :track="t" />
+          <pm-track 
+          v-blur="t.src"
+          :class="{ 'is-active': t.id === selectedTrack }"
+          :track="t" 
+          @select="setSelectedTrack" 
+          />
         </div>
   
       </div>
@@ -95,7 +100,7 @@ export default {
       tracks: [],
       isLoading: false,
       showNotification: false,
-      songPlaying: ""
+      selectedTrack: ""
 
     }
   },
@@ -114,9 +119,8 @@ export default {
 
     },
 
-    setSongPlaying(id) {
-      this.songPlaying = id;
-      console.log(this.songPlaying);
+    setSelectedTrack(id) {
+      this.selectedTrack = id;
     }
     
   },

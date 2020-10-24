@@ -30,13 +30,13 @@
                 <nav class="level">
                     <div class="level-left">
 
-                        <div class="level-item">
-                            <span class="icon is-small" @click="selectTrack">Play!</span>
-                        </div>
+                        <button class="level-item button is-primary">
+                            <span @click="selectTrack">Play!</span>
+                        </button>
 
-                        <div class="level-item">
-                            <span class="icon is-small" @click="goToTrack(track.id)">Go to track!</span>
-                        </div>
+                        <button class="level-item button is-warning">
+                            <span @click="goToTrack(track.id)">Go to track!</span>
+                        </button>
 
                     </div>
                 </nav>
@@ -63,6 +63,8 @@ export default {
 
         selectTrack() {
 
+            if(!this.track.src) return
+
             this.$emit("select", this.track.id);
 
             this.$bus.$emit("set-track", this.track);
@@ -70,10 +72,14 @@ export default {
         },
 
         goToTrack(id) {
+
+            if(!this.track.src) return
+
             this.$router.push({
                 name: "track",
                 params: { id }
             });
+            
         }
 
     }
