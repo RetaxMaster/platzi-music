@@ -19,19 +19,13 @@
 
 <script>
 
+import { mapState } from "vuex";
+
 export default {
-    
-    data(){
-        return {
-            track: {}
-        }
-    },
 
-    mounted() {
+    computed: {
 
-        this.$bus.$on("set-track", (track) => {
-            this.track = track;
-        });
+        ...mapState(["track"])
 
     }
 

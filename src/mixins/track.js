@@ -9,9 +9,9 @@ const trackMixin = {
 
             if(!this.track.src) return
 
-            this.$emit("select", this.track.id);
+            this.$store.commit("setTrack", this.track);
 
-            this.$bus.$emit("set-track", this.track);
+            this.$emit("select", this.track.id);
 
         }
         
