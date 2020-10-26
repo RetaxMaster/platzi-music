@@ -13,8 +13,11 @@
                     </div>
 
                     <div class="nav-right nav-menu">
-                        <router-link class="nav-item" :to="{ name: 'search' }">Buscar</router-link>
-                        <router-link class="nav-item" to="about">Acerca</router-link>
+                        <a class="nav-item" @click="selectLang('en')">EN</a>
+                        <a class="nav-item" @click="selectLang('es')">ES</a>
+                        <!-- Con la función $t() podemos imprimir el idioma deseasdo con base en la key pasada -->
+                        <router-link class="nav-item" :to="{ name: 'search' }">{{ $t("search") }}</router-link>
+                        <router-link class="nav-item" to="about">{{ $t("about") }}</router-link>
                     </div>
 
                 </div>
@@ -39,7 +42,17 @@ import PmPlayer from "@/components/Player";
 
 export default {
     
-    components: { PmPlayer }
+    components: { PmPlayer },
+
+    methods: {
+
+        selectLang(lang) {
+
+            this.$i18n.locale = lang;
+
+        }
+
+    }
 
 }
 

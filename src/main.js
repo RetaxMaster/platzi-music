@@ -7,6 +7,7 @@ import msToMm from "@/filters/ms-to-mm"
 import blur from "@/directives/blur"
 import routes from '@/routes.js'
 import store from './store'
+import i18n from './i18n'
 
 Vue.config.productionTip = false
 
@@ -24,5 +25,6 @@ const router = new VueRouter({
 new Vue({
   router,
   store,
+  i18n,
   render: h => h(App)
 }).$mount('#app')
